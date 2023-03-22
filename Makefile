@@ -29,6 +29,8 @@ CFLAGS		= -Wall -Wextra -Werror -I. -Iincludes
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
+all: 	${SERVEUR} ${CLIENT}
+
 ${SERVEUR}: ${OBJS_S}
 	make -C ./libft
 	${CC} ${CLFAGS} ${SRCS_S} ${LIBFT} -o ${SERVEUR} -Llibft -lft
@@ -37,7 +39,7 @@ ${CLIENT}: ${OBJS_C}
 	make -C ./libft
 	${CC} ${CLFAGS} ${SRCS_C} ${LIBFT} -o ${CLIENT} -Llibft -lft
 
-all: 	${SERVEUR} ${CLIENT}
+
 
 clean :
 		
